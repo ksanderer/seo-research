@@ -1,0 +1,10 @@
+{
+  "name": "seo-research",
+  "version": "1.0.0",
+  "description": "Automated competitor SEO research: keyword fetching, clustering by intent, content strategy analysis, and actionable implementation plans.",
+  "author": {
+    "name": "Alex T"
+  },
+  "license": "MIT",
+  "keywords": ["seo", "keyword-research", "competitor-analysis", "content-strategy", "clustering"]
+}

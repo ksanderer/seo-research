@@ -1,0 +1,17 @@
+# Credentials
+.env.local
+*.env
+
+# Cache and temp data
+.cache/
+.tmp/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
