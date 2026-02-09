@@ -4,37 +4,37 @@ Automated competitor SEO research pipeline for Claude Code. Fetches keywords, cl
 
 ## Installation
 
+Two steps — add the marketplace, then install the plugin:
+
 ```bash
-claude plugin install github:YOUR_USERNAME/seo-research
+# 1. Add marketplace
+/plugin marketplace add ksanderer/seo-research
+
+# 2. Install plugin
+/plugin install seo-tools@ksanderer-seo-research
 ```
 
-## What It Does
-
-1. **Competitor Discovery** — finds all competitors in your niche via web search
-2. **Keyword Fetching** — pulls ranked keywords from DataForSEO API
-3. **Clustering** — groups keywords by search intent using embeddings + K-means
-4. **Strategy Analysis** — categorizes competitor pages into SEO strategy types (comparison pages, integration pages, vertical landing, etc.)
-5. **Implementation Plans** — generates detailed content plans based on competitor analysis
+Restart Claude Code after installation.
 
 ## Usage
 
-Invoke the skill:
-
 ```
-/seo-research
+/seo-tools:research
 ```
 
-The skill guides you through an interactive pipeline:
-- Competitor discovery or manual input
-- Config setup (domains, filters, location)
-- Data collection → preprocessing → embedding → clustering
-- Iterative cluster review and cleanup
-- Per-competitor strategy analysis (via agents)
-- Final SEO master plan generation
+The skill walks you through an interactive 7-stage pipeline:
+
+1. **Competitor discovery** — provide domains manually or let Claude find them via web search
+2. **Onboarding** — choose output directory, set parameters (location, language, keyword limits)
+3. **Data collection** — fetch ranked keywords from DataForSEO API
+4. **Preprocessing** — merge, filter, calculate opportunity scores
+5. **Embeddings + Clustering** — group keywords by search intent (K-means)
+6. **Strategy analysis** — categorize competitor pages into strategy types (comparison, platform, vertical, etc.)
+7. **Final report** — SEO Master Plan with ranked strategies and implementation recommendations
 
 ## Agents
 
-The plugin includes 4 specialized agents that run as part of the pipeline:
+The plugin includes 4 specialized agents:
 
 | Agent | Purpose |
 |-------|---------|
@@ -45,37 +45,44 @@ The plugin includes 4 specialized agents that run as part of the pipeline:
 
 ## API Keys Required
 
-The plugin uses external APIs. You'll be prompted to configure these on first run.
+You'll be prompted to configure these on first run. Keys are stored in `.env.local` inside your project directory (git-ignored).
 
 | Service | Keys | Purpose |
 |---------|------|---------|
 | [DataForSEO](https://dataforseo.com) | `DATAFORSEO_LOGIN`, `DATAFORSEO_PASSWORD` | Keyword rankings data |
 | [OpenRouter](https://openrouter.ai) | `OPENROUTER_API_KEY` | Text embeddings for clustering |
 
-Keys are stored in `.env.local` in your project directory (git-ignored).
-
-## Output Structure
+## Output
 
 ```
 your-project/seo-research/
-├── config.json              # Project settings
+├── config.json                 # Project settings
+├── .env.local                  # API keys (git-ignored)
+├── .cache/                     # Raw data, embeddings, clusters (git-ignored)
 ├── competitors/
 │   └── domain.com/
-│       ├── homepage.json    # Homepage analysis
+│       ├── homepage.json       # Homepage analysis
 │       ├── comparison-pages.json
-│       └── ...              # Strategy JSONs
+│       └── ...                 # Strategy JSONs
 └── strategies/
-    ├── 0_SEO_Master_Plan.md # Executive summary
-    ├── homepage.md          # Homepage optimization plan
-    ├── comparison-pages.md  # Strategy implementation plans
+    ├── 0_SEO_Master_Plan.md    # Executive summary + ranked strategies
+    ├── homepage.md             # Homepage optimization plan
+    ├── comparison-pages.md     # Strategy implementation plans
     └── ...
 ```
 
 ## Requirements
 
+- [Claude Code](https://claude.ai/code) CLI
 - [uv](https://docs.astral.sh/uv/) — installed automatically if missing
 - Python 3.10+ (managed by uv)
-- Claude Code CLI
+
+## Updating
+
+```bash
+/plugin marketplace update ksanderer-seo-research
+/plugin update seo-tools@ksanderer-seo-research
+```
 
 ## License
 
