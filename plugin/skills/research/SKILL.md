@@ -1,5 +1,5 @@
 ---
-name: seo-research
+name: research
 description: Run competitor SEO research with keyword clustering and content analysis. Use for competitive keyword research, finding content opportunities, and building SEO strategy.
 ---
 

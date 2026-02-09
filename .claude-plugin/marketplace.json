@@ -5,7 +5,7 @@
   },
   "plugins": [
     {
-      "name": "seo-research",
+      "name": "seo-tools",
       "source": "./plugin",
       "version": "1.0.0",
       "description": "Automated competitor SEO research: keyword fetching, clustering by intent, content strategy analysis, and actionable implementation plans."
