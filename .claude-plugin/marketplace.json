@@ -1,5 +1,8 @@
 {
-  "marketplace": "ksanderer-seo-research",
+  "name": "ksanderer-seo-research",
+  "owner": {
+    "name": "ksanderer"
+  },
   "plugins": [
     {
       "name": "seo-research",
