@@ -1,0 +1,11 @@
+{
+  "marketplace": "ksanderer-seo-research",
+  "plugins": [
+    {
+      "name": "seo-research",
+      "source": ".",
+      "version": "1.0.0",
+      "description": "Automated competitor SEO research: keyword fetching, clustering by intent, content strategy analysis, and actionable implementation plans."
+    }
+  ]
+}
